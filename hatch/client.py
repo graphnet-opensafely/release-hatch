@@ -17,7 +17,7 @@ from hatch import app, config, signing
 def generate_token(workspace, user, duration):
     """Generate and sign and auth token."""
     url = urljoin(config.RELEASE_HOST, f"/workspace/{workspace}")
-    expiry = datetime.now(timezone.utc) + timedelta(minutes=duration)
+    expiry = datetime.now(timezone.utc) + timedelta(minutes=int(duration))
     token = signing.AuthToken(url=url, user=user, expiry=expiry)
     return token.sign(config.JOB_SERVER_TOKEN, salt="hatch")
 
