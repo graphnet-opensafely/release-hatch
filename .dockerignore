@@ -12,3 +12,6 @@
 **/venv
 **/.coverage
 **/*.egg-info/
+workspaces/*
+local-test.sh
+localrun.py
